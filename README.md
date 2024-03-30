@@ -1,5 +1,4 @@
 # SBA-318ExpressServer
-# SBA-318ExpressServer
 
 
 ----EXPRESS SERVER APPLICATION
@@ -38,6 +37,5 @@ HTML forms are utilized to interact with the self-made API. Users can submit dat
 ---------------------------------------------------------
 Node.js
 Express.js
-HTML
 CSS
 JavaScript

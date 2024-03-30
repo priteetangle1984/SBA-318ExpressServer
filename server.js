@@ -3,13 +3,15 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const Blog = require('./models/blog');
+const { result } = require('lodash');
 
 
-// -------use view engine-----------
+// -------register view engine-----------
 app.set('view engine', 'ejs');
 
 
-//-----using morgan--
+//-----using morgan/middleware and static files--
 app.use(morgan('dev')); 
 app.use(express.static('styles'));
 
@@ -19,26 +21,21 @@ mongoose.connect(dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-.then(() => {
-  console.log('Connected to MongoDB database');
+.then((result) => {
+    app.listen(3000);
 })
 .catch((error) => {
   console.log('Error connecting to MongoDB database:', error);
 });
 
 // ---------listen to server-----------
-app.listen(3000);
+// app.listen(3000);
 
+
+
+//ROUTES
 app.get('/', (req, res) => {
-    const blogs = [
-        {title: 'GitHub', snippet:'A blog for aspiring programmers that covers best practices and gives the opportunity to interact with other students and coders'},
-        {title: 'Slack Engineering Blog', snippet: 'A blog that covers the full spectrum of engineering, from junior team members to senior-level staff' },
-        {title: 'The Daily WTF', snippet: 'A user-submitted blog that highlights some of the worst coding practices that happen in a real working environment' },
-        {title: 'Coding Horror', snippet: 'A blog by Jeff Atwood that provides advice and tips for software engineers in a lighthearted tone' }
-    ]
-    // res.send('<p>Home Page</p>');
-    // res.sendFile('./views/index.html', { root: __dirname });
-    res.render('index', { title: 'Home', blogs});
+    res.redirect('/blogs');
 });
 
 app.get('/about', (req, res) => {
@@ -47,6 +44,15 @@ app.get('/about', (req, res) => {
     res.render('about', { title: 'About'});
 });
 
+//----BLOG ROUTES-----
+app.get('/blogs' ,(req, res) => {
+    Blog.find().sort({ createdAt: -1 })
+    .then((result) => {
+        res.render('index', { title: 'All Blogs', blogs: result })
+    }) .catch((err) => {
+        console.log(err);
+    });
+}) 
 
 app.get('/blogs/create', (req, res) => {
     // res.send('<p>about Page</p>');
