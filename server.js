@@ -78,6 +78,18 @@ Blog.findById(id)
 });
 })
 
+//======DELETE
+app.delete('/blogs/:id', (req, res) => {
+    const id = req.params.id;
+    // console.log(id);
+    Blog.findByIdAndDelete(id)
+    .then((result) => {
+        res.render('details', { blog: result, title: 'Blog Details'});
+    }) .catch((err) => {
+        console.log(err);
+    });
+    })
+
 app.get('/blogs/create', (req, res) => {
     // res.send('<p>about Page</p>');
     // res.sendFile('./views/about.html', { root: __dirname });
