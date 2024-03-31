@@ -67,24 +67,24 @@ blog.save()
 });
 })
 
-app.get('/blogs/:id', (req, res) => {
-const id = req.params.id;
-// console.log(id);
-Blog.findById(id)
-.then((result) => {
-    res.render('details', { blog: result, title: 'Blog Details'});
-}) .catch((err) => {
-    console.log(err);
-});
-})
+// app.get('/blogs/:id', (req, res) => {
+// const id = req.params.id;
+// // console.log(id);
+// Blog.findById(id)
+// .then((result) => {
+//     res.render('details', { blog: result, title: 'Blog Details'});
+// }) .catch((err) => {
+//     console.log(err);
+// });
+// })
 
-//======DELETE
+// ======DELETE
 app.delete('/blogs/:id', (req, res) => {
     const id = req.params.id;
     // console.log(id);
     Blog.findByIdAndDelete(id)
     .then((result) => {
-        res.render('details', { blog: result, title: 'Blog Details'});
+        res.json({redirect: '/blogs'});
     }) .catch((err) => {
         console.log(err);
     });
