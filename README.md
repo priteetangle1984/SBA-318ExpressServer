@@ -19,7 +19,9 @@ Navigated to the project directory:
 
 INSTALL DEPENDENCIES:
 npm install
-Start the server:
+
+
+START THE SERVER:
 npm start
 
 ------Objectives
