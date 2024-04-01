@@ -13,15 +13,18 @@ This project is aimed at creating a server application using Node.js and Express
 To get started with this project, follow the steps below:
 
 Made a new git repository:
+
 Navigated to the project directory:
 
 
 
 INSTALL DEPENDENCIES:
+
 npm install
 
 
 START THE SERVER:
+
 npm start
 
 ------Objectives
