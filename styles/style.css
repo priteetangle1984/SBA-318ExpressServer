@@ -71,7 +71,7 @@ h3{
   position: relative;
 }
 .delete {
-  background-color: #3e8e41;
+  /* background-color: #3e8e41; */
   color: white;
   box-sizing: border-box;
   position: absolute;
@@ -83,7 +83,7 @@ h3{
   transition-duration: 0.4s;
 }
 
-.delete:hover {background-color: #f44336}
+/* .delete:hover {background-color: #f44336} */
 
 .delete:active {
   box-shadow: 0 5px #666;

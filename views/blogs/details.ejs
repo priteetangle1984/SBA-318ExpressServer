@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('./partials/head.ejs') %>
+<%- include('../partials/head.ejs') %>
 
     <body>
 
-        <%- include('./partials/nav.ejs') %>
+        <%- include('../partials/nav.ejs') %>
 
             <div class="details content">
                 <h2>
@@ -16,7 +16,9 @@
                         <%= blog.body %>
                     </p>
                 </div>
-                <a class="delete" data-doc="<%= blog._id %>">delete</a>
+                <a class="delete" data-doc="<%= blog._id %>">
+                    <img src="/delete.svg">
+                </a>
 
             </div>
             
@@ -37,7 +39,7 @@
 
             </script>
 
-            <%- include('./partials/footer.ejs') %>
+            <%- include('../partials/footer.ejs') %>
     </body>
 
 </html>
