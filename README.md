@@ -44,6 +44,9 @@ HTML forms are utilized to interact with the self-made API. Users can submit dat
 -------------Technologies Used--------------------
 ---------------------------------------------------------
 Node.js
+
 Express.js
+
 CSS
+
 JavaScript
