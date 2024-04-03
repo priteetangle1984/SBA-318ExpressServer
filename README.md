@@ -14,7 +14,7 @@ To get started with this project, follow the steps below:
 
 Made a new git repository:
 Navigated to the project directory:
-Install dependencies:
+INSTALL DEPENDENCIES:
 npm install
 Start the server:
 npm start
